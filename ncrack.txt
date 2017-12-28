@@ -1,0 +1,23 @@
+
+ncrack -y veronica -P veronica.txt -T5 BBox -p 21
+
+ncrack -T4 -v -user margo  -P $WORDLISTS/phpbb.txt gibson:22
+_____________Crunch
+  password 13 characters in length starts with bev 
+  crunch 13 13 -t bev,%%@@^1995 -o tommy.txt
+  crack zip password protected files
+  v- verbose
+  -D dictionary
+  -u unzip
+  -p use string as password file name
+
+  3 letter @
+  4 digits %
+  crunch 7 7 -t@@@%%%%
+  starting with the letter m[2 unknown letters] followed by 4 digits
+  crunch 7 7 -t m@@%%%%
+
++++++++++++++++
+_____Crack zip
+  fcrackzip -v -D -u -p tommy.txt t0msp4ssw0rdz.zip
+

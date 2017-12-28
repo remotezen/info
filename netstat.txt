@@ -1,0 +1,23 @@
+
+_________-lsof
+lsof -i UDP -n -P
+lsof -i TCP -n -P
+
+netstat -al --numeric-ports | grep LISTEN
+
+sudo netstat -tulpn
+
+iptables -t nat -A PREROUTING -i ppp0 -p tcp --dport 80 -j REDIRECT --to-ports 8080
+
+sudo iptables -L --line-numbers
+sudo iptables -D INPUT 2
+ufw allow from 192.168.0.0/24 to any port 8881
+ufw status numbered
+
+ip route
+
+ip link show eth0 
+sudo ip link set dev eth0 down
+sudo ip link set dev eth0 up
+powerful netstat command
+netstat -pantul

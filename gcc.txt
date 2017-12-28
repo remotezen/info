@@ -1,0 +1,24 @@
+
+gcc pwnme.c -o pwnme -ggdb -fno-stack-protector
+
+gcc -m32 overlay.c -o overlay 
+
+ gcc -o wack wack.c -no-pie -z execstack -fno-stack-protector
+-mpreferred-stack-boundary=2 -ggdb
+
+
+
+__dump core
+echo 0 > /proc/sys/kernel/randomize_va_space
+
+ulimit -s unlimited
+ulimit -c
+
+_____________look at core dump
+gdb -q -c core
+hung process
+gcore <pid>
+kill -ABRT <pid>
+
+ gcc -o wack wack.c -no-pie -z execstack -fno-stack-protector
+

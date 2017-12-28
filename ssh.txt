@@ -1,0 +1,20 @@
+
+ssh no login
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub remote-host
+
+ ssh-add -L
+
+ssh-keygen -t rsa -C john
+
+ssh remmotezen@192.168.0.109 -i remotezen 
+________________Mount remote file system
+sshfs root@test.example.org:/var/www /mnt/sshfsmounts/www
+
+ssh -i <private key file> <server>
+
+___________mysql tunnel
+ ssh -l youruser yourhost.com -p 22 -N -f -C -L 3306:yourdbserver.com:3306
+
+cat authorized_keys --this will show which key file belongs to which user
+cat id_rsa.pub >> authorized_keys 

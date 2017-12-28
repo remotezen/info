@@ -1,0 +1,37 @@
+
+_____john same as crunch
+import string
+import itertools
+
+prefix = 'bev'
+suffix = '1995'
+uppercase = list(string.ascii_uppercase)
+lowercase = list(string.ascii_lowercase)
+numbers = list(string.digits)
+symbols = list('$%^&*()-_+=|\<>[]{}#@/~')
+
+part1 = uppercase
+part2 = [''.join(s) for s in itertools.product(numbers, repeat=2)]
+part3 = [''.join(s) for s in itertools.product(lowercase, repeat=2)]
+part4 = symbols
+
+candidates = reduce(lambda a,b: [i+j for i in a for j in b], [part1, part2, part3, part4])
+for candidate in candidates:
+  print prefix + candidate + suffix
+
+
+umask 077
+unshadow /etc/passwd /etc/shadow > passwd
+john passwd
+
+./john --format=raw-MD5 ~/tmp/password.txt --show
+
+./john --format=raw-MD5 ~/tmp/password.txt --show
+
+john passwd.txt
+
+cewl.rb --proxy_host 192.168.0.109 --proxy_port 3129 192.168.0.109/blog --write got.dict
+___________John crack rar
+rar2john crocs.rar > toCrack.txt
+./john $LAB/toCrack.txt -w=$LAB/wordlist.txt
+

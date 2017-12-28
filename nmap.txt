@@ -1,0 +1,100 @@
+
+nmap --interactive
+at nmap prompt
+!sh
+uname -an; id
+
+nmap -p- -T5 -A -v -sT 192.168.0.108
+
+nmap -sV <ip address>
+
+nmap -sV --script=vulscan/vulscan.nse www.example.com
+
+sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/local/bin/nmap
+
+nmap -p1-65535 -A -T5 -sT 192.168.110.10
+
+nmap -T4 -Pn -v -p22 192.168.56.100
+
+nmap -sS -T4 -v -p- 192.168.0.108
+
+____________knock
+for x in 3 2 1; do nmap -Pn --host_timeout 201 --max-retries 0 -p $x 192.168.0.109; done
+
+nmap -p 7788,22 192.168.0.107
+
+necro sudo nmap nmap -sU -sT -n -r -T4 necro -p-  
+
+/usr/local/share/nmap/scripts/vulscan ---script dir for updates
+
+__________________Knock
+knock 192.168.0.107 7482:tcp 8279:tcp 9467:tcp
+
+knock 192.168.0.108 1,2,3
+______________nmap multiple targets
+192.168.10.1,100,101
+192.168.10.1,100-110
+nmap 192.168.1-100.*
+nmap cat list # line seperated list of targets
+nmap -iL list.txt
+--exclude
+nmap vuln/24 --exclude 192.168.0.101
+___exclude range
+nmap vuln/24 --exclude 192.168.0.101-105
+__exclude addies in file
+
+nmap vuln/24 --excludefile excludeList.lst
+
+___________________________________Nmap switches
+-A aggresive scan
+-6 for ipv6 ie:
+  nmap -6 fe80::29aa:9db9:4164:d80e
+-PN
+Perform a Ping Only Scan
+-sP
+TCP SYN Ping
+-PS
+TCP ACK Ping
+-PA
+
+UDP Ping
+-PU
+SCTP INIT Ping
+-PY
+ICMP Echo Ping
+-PE
+ICMP Timestamp Ping
+-PP
+ICMP Address Mask Ping
+-PM
+IP Protocol Ping
+-PO
+ARP Ping
+-PR
+Traceroute
+--traceroute
+Force Reverse DNS Resolution
+-R
+Disable Reverse DNS Resolution
+-n
+Alternative DNS Lookup
+--system-dns
+Manually Specify DNS Server(s)
+--dns-servers
+Create a Host List
+-sL
+-PN #donot ping
+___Ping scan only
+  -sP
+
+TCP syn ping -PS
+  -PS22,110,443 #specify ports
+___ACK scan
+-PA #default is 80 but you can supply a comma sorted list of port
+___UDP
+-PU defualt is 40125 but you can supply...
+______________nmap simple ping
+nmap -sP
+
+
+
