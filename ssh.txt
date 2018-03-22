@@ -7,6 +7,10 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub remote-host
 
 ssh-keygen -t rsa -C john
 
+__________________use public key for passwordless login
+add ~/.ssh/id_rsa.pub to -->remote server
+then--> ssh -i ~/.ssh/id_rsa mike@pegasus
+
 ssh remmotezen@192.168.0.109 -i remotezen 
 ________________Mount remote file system
 sshfs root@test.example.org:/var/www /mnt/sshfsmounts/www
@@ -18,3 +22,5 @@ ___________mysql tunnel
 
 cat authorized_keys --this will show which key file belongs to which user
 cat id_rsa.pub >> authorized_keys 
+______________change login shell
+ssh -t username@hostname /bin/sh works for me.

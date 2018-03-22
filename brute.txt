@@ -21,6 +21,7 @@ for candidate in candidates:
 
 
 umask 077
+
 unshadow /etc/passwd /etc/shadow > passwd
 john passwd
 
@@ -35,3 +36,10 @@ ___________John crack rar
 rar2john crocs.rar > toCrack.txt
 ./john $LAB/toCrack.txt -w=$LAB/wordlist.txt
 
+uo this was an easy flag to get, hopefully. Have you gotten ~minotaur/flag.txt yet?
+Th3 fl@G 15: m00000 y0
+
+Congrats! You've found the first flag:
+M355 W17H T3H 8ULL, G37 73H H0RN!
+
+But can you get /root/flag.txt ?

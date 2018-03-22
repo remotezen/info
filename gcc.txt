@@ -3,8 +3,7 @@ gcc pwnme.c -o pwnme -ggdb -fno-stack-protector
 
 gcc -m32 overlay.c -o overlay 
 
- gcc -o wack wack.c -no-pie -z execstack -fno-stack-protector
--mpreferred-stack-boundary=2 -ggdb
+ gcc -o wack wack.c -no-pie -z execstack -fno-stack-protector -mpreferred-stack-boundary=2 -ggdb
 
 
 
@@ -22,3 +21,15 @@ kill -ABRT <pid>
 
  gcc -o wack wack.c -no-pie -z execstack -fno-stack-protector
 
+
+______________Rop
+
+python -c 'print "A" * 44 + "B" * 4' > eip.txt
+gdb ./level0 -ex 'run < eip.txt'
+ p mprotect
+
+$1 = {<text variable, no debug info>} 0x80523e0 <mprotect>
+ /proc/sys/kernel/core_pattern
+/etc/security/limits.conf
+configure 
+/etc/sysctl.conf

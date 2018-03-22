@@ -440,3 +440,13 @@ get rid of ^M
 %s/\r\(\n\)/\1/g
 misconfigured apache
 b374k.php.jpg
+echo 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e | nc localhost 30000
+___________________Binary as hex
+hexdump -C -v <binary> <filename for hexdump>
+
+python convert from binary string to ascii
+>>> n = int('0b110100001100101011011000110110001101111', 2)
+>>> binascii.unhexlify('%x' % n)
+'hello'
+____________bash brute command line
+for i in {0000..9999}; do echo $i; ~/leviathan6 $i;done
